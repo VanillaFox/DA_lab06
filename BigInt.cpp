@@ -233,13 +233,13 @@ TBigInt TBigInt::operator/(TBigInt& second) {
 		second = second * d;
 	}
 	for(int j = m; j >= 0; j--){
-		curr = (Number[n + j] * BASE + Number[j + n - 1]);
+		curr = (tmp.Number[n + j] * BASE + tmp.Number[j + n - 1]);
 		rem = curr % second.Number[n - 1];
 		guess = curr / second.Number[n - 1];
 
 		while(rem < BASE){
 			a = guess * second.Number[n - 2];
-			b = BASE * rem + Number[j + n - 2];
+			b = BASE * rem + tmp.Number[j + n - 2];
 			if(guess == BASE || a > b){
 				guess--;
 				rem += second.Number[n - 1];
@@ -255,16 +255,13 @@ TBigInt TBigInt::operator/(TBigInt& second) {
 		mult = cur * guess;
 		try{
 			tmp = tmp - mult;
-
 		}
 		catch(int c){
 			guess--;
 			mult = cur * guess;
 			tmp = tmp - mult;
 		}
-
 		res.Number.push_back(guess);
-
 	}
 	
 	std::reverse(res.Number.begin(), res.Number.end());
@@ -280,10 +277,8 @@ TBigInt TBigInt::operator/(int second) {
 	TBigInt res;
 	for(int i = (*this).Number.size(); i > 0; i--){
 		guess = ((*this).Number[i - 1] + rem * BASE) / second;
-		//rem = ((*this).number[i - 1] + rem * BASE) % second;
 		rem = (*this).Number[i - 1] + rem * BASE - guess*second;
 		res.Number.push_back(guess);
-
 	}
 	std::reverse(res.Number.begin(), res.Number.end());
 	while (res.Number.size() > 1 && !res.Number.back()) {

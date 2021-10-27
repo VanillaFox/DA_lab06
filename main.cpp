@@ -1,8 +1,9 @@
 #include <iostream>
+#include <chrono>
 #include "BigInt.h"
 
-int main()
-{
+int main(){
+    auto start = std::chrono::steady_clock::now();   
     std::string first, second;
     char symbol;
     while(std::cin >> first >> second >> symbol){
@@ -48,4 +49,7 @@ int main()
             }
         }
     }
+    auto end = std::chrono::steady_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end-start;
+    std::cout << "C++ time: " <<  elapsed_seconds.count() << std::endl;
 }
