@@ -3,7 +3,7 @@
 #include "BigInt.h"
 
 int main(){
-    auto start = std::chrono::steady_clock::now();   
+    // auto start = std::chrono::steady_clock::now();   
     std::string first, second;
     char symbol;
     while(std::cin >> first >> second >> symbol){
@@ -32,13 +32,13 @@ int main(){
             }
         }
         else if(symbol == '<'){
-            std::cout << ((fs < sd) ? "true" : "false") << std::endl;
+            std::cout << ((fs < sd) ? "True" : "False") << std::endl;
         }
         else if(symbol == '>'){
-            std::cout << ((fs > sd) ? "true" : "false") << std::endl;
+            std::cout << ((fs > sd) ? "True" : "False") << std::endl;
         }
         else if(symbol == '='){
-            std::cout << ((fs == sd) ? "true" : "false") << std::endl;
+            std::cout << ((fs == sd) ? "True" : "False") << std::endl;
         }
         else if(symbol == '^'){
             try{
@@ -49,7 +49,7 @@ int main(){
             }
         }
     }
-    auto end = std::chrono::steady_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end-start;
-    std::cout << "C++ time: " <<  elapsed_seconds.count() << std::endl;
+    // auto end = std::chrono::steady_clock::now();
+    // std::chrono::duration<double> elapsed_seconds = end-start;
+    // std::cout << "C++ time: " <<  elapsed_seconds.count() << std::endl;
 }
